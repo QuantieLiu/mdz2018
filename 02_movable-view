@@ -1,0 +1,68 @@
+业务需求：个人中心view能在固定区域移动
+现存问题：该页面存在scroll-view嵌套，监听滚动事件时性能明显较慢，待处理
+
+.wxml代码如下：
+
+  <movable-area style="height:{{height-85}}px;width:{{width}}px;">
+    <movable-view x="{{x}}" y="{{y}}" direction="all" bindchange='moveUser' damping='200'>
+      <button wx:if="{{isLogin}}" class="tab-button" hover-class="btnhover" style="background-color: rgba(255, 255, 255, 0);" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap='userCenter'>
+        <icon class="iconfont icon-user-o" style="font-size:14px;"></icon>
+        <text style="font-size: 12px;">个人中心</text>
+      </button> 
+    </movable-view>
+    <!-- 若有商品数据等view，可用template在此添加，页面更为简洁 -->
+  </movable-area>
+  
+.wxss代码如下：
+movable-area {
+  /* background-color: #f7f8f9; */
+  overflow: hidden;
+  margin-bottom:50px;
+}
+
+movable-view {
+  display: flex;
+  height:30px;
+  width:80px;
+  box-shadow:0rpx 2rpx 5rpx 5rpx #E2EBFF inset;
+  background: #fff;
+  line-height: 1.7em;
+  border-radius: 1em;
+  z-index: 1;
+}
+.tab-button{
+  height:1.5em;
+  display:inline-block;
+  width:80%;
+  line-height: unset;
+}
+.btnhover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* 小程序默认的样式代码 */
+movable-view {
+display:inline-block;
+width:10px;
+height:10px;
+top:0px;
+left:0px;
+position:absolute;
+}
+
+.js代码如下：
+  /**
+   * 移动用户view
+   */
+  moveUser: function (e) {
+    var nowy = e.detail.y ? e.detail.y : 0;
+    var height = this.data.height ? this.data.height-250 :0;
+    if( nowy >= height){
+      this.setData({
+        x: 10,
+        y: 240
+      });
+    }
+   },
+   
+   更多参考官方文档，在此只记录样式和js方法
