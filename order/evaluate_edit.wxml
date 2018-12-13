@@ -1,0 +1,52 @@
+
+<view class="htmlb">
+  <view class="main-contain">
+  
+  
+<!-- 亮点：无法用for循环，只能一个个手写，性能更优 -->
+    <view class="judge-wrap">
+      <text>描述相符</text>
+      <icon class="iconfont icon-star-o {{score > 0?'active':'freeze'}}" id="{{1}}" bindtap='touchStar' style="margin-left: 20px;"></icon>
+      <icon class="iconfont icon-star-o {{score > 1?'active':'freeze'}}" id="{{2}}" bindtap='touchStar'></icon>
+      <icon class="iconfont icon-star-o {{score > 2?'active':'freeze'}}" id="{{3}}" bindtap='touchStar'></icon>
+      <icon class="iconfont icon-star-o {{score > 3?'active':'freeze'}}" id="{{4}}" bindtap='touchStar'></icon>
+      <icon class="iconfont icon-star-o {{score > 4?'active':'freeze'}}" id="{{5}}" bindtap='touchStar'></icon>
+    </view>
+
+    <form bindsubmit="formSubmit">
+      <input type="text" id='id' hidden='true' name="id" value="{{id}}"/>
+      <input type="text" id='orderId' hidden='true' name="orderId" value="{{orderId}}"/>
+      <input type="text" id='score' hidden='true' name="score" value="{{score}}"/>
+      <view class="content-wrap">
+        <textarea class="content" name="content" maxlength="{{maxLength}}" placeholder="填写描述" value="{{content}}" bindinput="bindRemarkInput"></textarea>
+        <!-- <view class="len-v">{{currenLen}}/{{maxLength}}</view> -->
+      </view>
+        <!-- 
+      <view class="pic-wrap">
+      <view class="pic-load-detail">
+          <icon class="iconfont icon-image-o freeze" style="font-size: 36px;margin-top: 10px;margin-left: 10px;color:grey;" bindtap='choosePic'></icon>
+        </view>
+         <view class="pic-load-tip">
+          <view style="font-size: 16px;">上传图片</view>
+          内容丰富的评价有机会成为优质评价哦
+        </view>
+      </view> -->
+
+ <!-- 亮点：已上传图片和上传图片按钮依次摆放   vertical-align属性 -->
+      <view class="pic-show-wrap">
+        <view class="pic-show-per pic-per-same" wx:for="{{tempFilePaths}}" wx:key="{{index}}" wx:for-item="items">
+          <icon class="iconfont icon-times-circle-o pic-icon" id="{{index}}" bindtap='delPic'></icon>
+          <image src="{{items}}" mode='aspectFill' binderror="errImg" data-errorimg="{{index}}"></image>
+        </view>
+        <view wx:if="{{tempFilePaths.length<9}}" class="pic-load-detail pic-per-same">
+          <icon class="iconfont icon-image-o freeze" style="font-size: 28px;margin-top: 10px;margin-left: 15px;color:grey;" bindtap='choosePic'></icon>
+          <view class="pic-icon-add">添加图片</view>
+        </view>
+      </view>
+      <view class="form-save-wrap">
+        <button  class="form-save-button" formType="submit">保存评价</button>
+      </view>
+    </form>
+
+  </view>
+</view>
