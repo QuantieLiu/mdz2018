@@ -1,0 +1,14 @@
+<!-- 能实时显示字数的文本输入框 -->
+<view class="htmlb">
+  <view class="rem-v">
+    <textarea class="remark" name="remark" maxlength="{{maxLength}}" placeholder="请输入备注，100字以内" value="{{remark}}" bindinput="bindRemarkInput"></textarea>
+    <view class="len-v">{{currenLen}}/{{maxLength}}</view>
+  </view>
+
+
+
+  <view class="addr-v">
+     <view class="addr-button" bindtap="backToOrder">完成</view>
+  </view>
+
+</view>
