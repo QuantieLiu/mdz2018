@@ -1,0 +1,36 @@
+/* 按钮大小 */
+radio{
+  transform:scale(0.9);
+}
+
+
+button::after {
+  /*没有圆角  */
+  border-radius: 0;
+  /* 去掉边框 */
+  border: none;
+}
+
+/*没有圆角  */
+button{
+    border-radius: 0;
+}
+
+/*  若所有页面底色什么的都统一，可用 container */
+.container {
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
+} 
+
+/*  设置页面底色等，在container里面高度无法占比整个屏幕，需使用page */
+page{
+  height:100%;
+  background:#f0f2f5;
+}
+
+/*  view水平垂直居中 */
+在父view中添加：
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
