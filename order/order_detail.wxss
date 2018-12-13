@@ -1,0 +1,203 @@
+
+@import "/pages/theme/css/font.wxss";
+@import "../template/logistics/logistics.wxss";
+page{
+  height: 100%;
+	background: #f0f2f5;
+}
+
+.htmlb {
+	background: #f0f2f5;
+  height: 100%;
+  width: 100%;
+	color: #252525;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* 顶部-状态-开始 */
+.top-wrap{
+  height: 80px;
+  width: 100%;
+  background: #ffd161;
+  padding:10px;
+}
+
+.flex-content{
+	font-size: 14px;
+	color: #333;
+  line-height: 30px;
+  -webkit-box-flex: 1;
+}
+
+/* 顶部-状态-结束 */
+
+/* 主窗口-收货信息-开始 */
+.main-wrap{
+  margin:0 5px;
+  margin-top:-50px;
+  padding-bottom:5px;
+}
+.addr-wrap{
+  background-color: #fff;
+  padding:10px;
+  border-radius:5px;
+}
+.step1{
+  border-bottom: 1px solid #f4f4f4;
+  line-height:30px;
+  display:flex;
+}
+
+.step2 {
+	/* background-color: #fff;
+  width: 100%;
+	position: relative;
+	padding: 5px 0;
+	top: 0; */
+  margin-top: 5px;
+}
+.fon-grey{
+	color: #666;
+}
+
+.step2 .mt {
+  line-height:30px;
+  display:flex;
+  flex-direction:row;
+}
+
+.step2 .s2-name {
+  width:60%;
+}
+
+.mc {
+	overflow:hidden;
+  text-overflow:ellipsis;
+  /* white-space:nowrap; */
+}
+/* 主窗口-收货信息-结束 */
+
+/* 主窗口-收货信息-开始 */
+.goods-wrap{
+  background-color: #fff;
+  padding:10px;
+  border-radius:5px;
+  margin-top:5px;
+
+}
+
+.fon-black{
+	color: #333333;
+}
+
+.clearfix{
+	clear: both;
+}
+.order-region-entries{
+  font-size:12px;
+}
+.order-region-entry {
+	position: relative;
+  margin-top: 5px;
+  line-height:30px;
+  display:flex;
+}
+.order-entry-name {
+	display: flex;
+  vertical-align: middle;
+  flex:1;
+  width:70%;
+}
+.order-entry-name-text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  width:80%;
+}
+.order-entry-price {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: right;
+}
+
+.goods-img{
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	vertical-align: middle;
+	/* text-align: left;
+  list-style-type: disc; */
+}
+
+.order-price {
+  display:flex;
+	height: 30px;
+	line-height: 30px;
+  width:100%;
+}
+
+.order-price-left{
+  flex:1;
+}
+
+.order-field{
+  margin-top:10px;
+  font-size:12px;
+}
+
+.order-price-bottom{
+  display:flex;
+  line-height:35px;
+  border-top:1px solid #f4f4f4;
+
+}
+/* 主窗口-收货信息-结束 */
+
+/* 主窗口-订单时间-开始 */
+.order-detail-wrap{
+  margin-top:5px;
+  color: #666;
+  font-size:12px;
+  padding:10px;
+}
+
+.per-wrap{
+  line-height:20px;
+}
+/* 主窗口-订单时间-结束 */
+
+
+
+/* 亮点：子view靠右，在父view中用justify-content即可，float无效 */
+/* 底部按钮-开始 */
+.btn-wrap{
+	height: 30px;
+  line-height: 30px;
+  padding: 2%;
+  background:#FFFFFF;
+  display:flex;
+  width:96%;
+  flex-direction:row;
+  justify-content:flex-end;
+}
+
+.imb-btn{
+  background-color:#ffd161;
+  padding: 7px 3px;
+  border-radius: 3px;
+  text-decoration: none;
+  line-height:15px;
+  width:60px;
+  text-align:center;
+  height:15px;
+}
+
+.imb-btn-cancel{
+  background-color:#FFFFFF;
+	border: 1px solid #f4f4f4;
+}
+/* 底部按钮-结束 */
