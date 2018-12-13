@@ -1,0 +1,79 @@
+
+<view class="htmlb" style="height: auto;">
+
+ <!-- top是最底部的纯色背景-->
+  <view class="top-wrap">
+    <text class="flex-content">订单{{order.orderStatus}}</text>
+  </view>
+
+ <!-- 亮点：main-wrap悬浮在top上面，用margin-top即可，不需要设置z-index -->
+  <view class="main-wrap">
+    <view class="addr-wrap">
+      <view class="step1">
+      <view wx:if="{{logisObj}}" class="order-entry-name-text" style="flex: 1;" bindtap='goLogis'>物流信息：{{logisObj.Traces[0].AcceptStation}}</view>
+        <icon class="right-arrows fa fa-angle-right" style="margin-top: -5px;width: 5%;margin-left: 30px;"></icon>
+      </view>
+      <!-- wx:if="{{order.orderType == 1}}"  -->
+      <view class="step2" id="{{order.addressId}}">
+        <view class="mt">
+          <view class="s2-name">收货人：<text class="fon-grey">{{order.receiver}}</text></view>
+          <view class="s2-phone">{{order.receiverMobile}}</view>
+        </view>
+        <view class="mc">收货地址：<text class="fon-grey">{{order.receiveAddress}}</text></view>
+			</view> 
+    </view>
+
+    <view class="goods-wrap fon-grey">
+      <view class="step1">商品信息</view>
+      <!-- 订单中商品列表 -->
+		  <view class="order-region-entries">
+        <view class="order-region-entry clearfix" wx:for="{{order.orderGoods}}" wx:key="{{orderGoods.id}}" id="{{item.id}}">
+          <image src="{{item.imgUrl}}" mode='aspectFill'  class="goods-img" binderror="errImg" data-errorimg="{{index}}"></image>
+          <view class="order-entry-name">
+            <view class="order-entry-name-text">{{item.goodsName}}</view>
+            <text style='font-size: 12px;'>x{{item.goodsNum}}</text>
+          </view>
+          <view class="order-entry-price">￥{{item.defaultPrice}}</view>
+        </view> 
+		  </view>
+      <!--订单中的所有商品循环--> 
+      <view class="order-field">
+        <view class="order-price">
+          <view class="order-price-left" >商品总价</view>
+          <view class="order-price-right">￥{{order.totalGoodsMoney}}</view>
+        </view>
+        <view class="order-price">
+          <view class="order-price-left" >运费</view>
+          <view class="order-price-right" >￥{{order.freightMoney}}</view>
+        </view>
+        <view class="order-price fon-black">
+          <view class="order-price-left" >订单总价</view>
+          <view class="order-price-right" >￥{{order.totalSaleMoney}}</view>
+        </view>
+      </view>
+      <view class="order-price-bottom fon-black">
+          <view class="order-price-left" >实付款</view>
+          <view class="order-price-right" >￥{{order.totalSaleMoney}}</view>
+      </view>
+    </view>
+
+    <view class="addr-wrap order-detail-wrap">
+      <view class="per-wrap">订单编号：{{order.code}}</view>
+      <view class="per-wrap">创建时间：{{order.createTime}}</view>
+      <view wx:if="{{order.payTime}}" class="per-wrap">付款时间：{{order.payTime}}</view>
+    </view>
+  </view>
+
+ <!-- 亮点：在view中的按钮view水平居中靠右，float无效，看btn-wrap样式-->
+    <view class="btn-wrap">
+       <view class="imb-btn imb-btn-cancel">取消订单</view>
+       <view class="imb-btn" style="margin-left: 10px;" id="{{order.id}}" bindtap='goEvaluate'>去付款</view>
+    </view>
+
+
+  <!-- 物流信息以弹框形式打开，待完善，目标JD的主界面物流信息弹框效果-->
+  <!-- 亮点：template使用，wxml负责传参数到template的wxml-->
+  <import src="../template/logistics/logistics.wxml"/>
+  <template is="logistics" data="{{order,logisObj,isShowLogis}}"></template>
+
+</view>
