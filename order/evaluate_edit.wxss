@@ -1,0 +1,134 @@
+@import "/pages/theme/css/font.wxss";
+@import "/pages/theme/css/iconfont.wxss";
+
+page{
+  background-color: #f0f2f5;
+}
+
+.main-contain{
+  background-color:#fff;
+  padding:5px;
+  margin:5px;
+  border-radius:5px;
+  height:100%;
+  display:flex;
+  box-sizing:border-box;
+  flex-direction:column;
+  font-size:13px;
+}
+/* 评分-开始 */
+.judge-wrap{
+  padding:10px;
+  line-height:30px;
+}
+
+.active{
+  color:#FF9B1A;
+}
+
+.freeze{
+  color:#D2D2D2;
+}
+/* 评分-结束 */
+
+/* 备注-开始 */
+.content-wrap{
+  width: 100%;
+}
+.content {
+  /* padding:5px;
+  background: #f0f2f5;
+  border: 1px solid #e5e5e5;
+  font-family: inherit;
+  margin-top: 15px; */
+  width: 90%;
+  margin-left: 3%;
+  margin-right: 3%;
+  outline: none;
+	border-radius: 0;
+  min-height:130px;
+  font-size: 13px;
+}
+
+.len-v{
+  color:#333;
+  float:right;
+  font-size:12px;
+  padding-right:15px;
+  position:relative;
+  margin-top:-23px;
+}
+/* 备注-结束 */
+
+/* 图片相关-开始 */
+.pic-show-wrap{
+   padding:10px; 
+}
+
+.pic-load-detail{
+  border:1px dashed #e5e5e5;
+}
+
+.pic-show-per{
+  position: relative;
+  margin-right:10px;
+}
+
+.pic-per-same{
+  margin-top:10px;
+  width:60px;
+  height:60px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pic-icon{
+  position:absolute;
+  right:-7px;
+  top:-18px;
+  z-index:1;
+  /* background-color:#fff; */
+}
+
+.pic-icon-add{
+  font-size: 8px;
+  margin-left:15px;
+  margin-top:5px;
+}
+.pic-show-wrap .pic-show-per>image {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+/* 图片相关-结束 */
+
+/* 保存按钮-开始 */
+.form-save-wrap{
+  margin: 20px 10% 10px 10%;
+  width: 80%;
+  background: #ffcd58;
+  /* border-radius:5px; */
+}
+
+.form-save-button{
+  background: #ffcd58;
+  color:#333;
+  font-size: 14px;
+  border:none;
+}
+
+/* 保存按钮-结束 */
+
+.pic-wrap{
+  height:60px;
+  width: 100%;
+  padding:10px;
+  display:flex;
+  flex-direction:row;
+}
+
+.pic-load-tip{
+  margin-left:10px;
+  margin-top:10px;
+  font-size:12px;
+}
