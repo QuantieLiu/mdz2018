@@ -36,6 +36,26 @@ align-items: center;
 justify-content: space-between;
 
 /*  文字若显示超出一行则省略号 */
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+
+/*  文字若显示超出多行则省略号 */
+overflow: hidden;
+text-overflow:ellipsis;
+word-break: break-all;
+display: -webkit-box;
+-webkit-box-orient: vertical;    /* 竖直方向的超出和隐藏 */
+-webkit-line-clamp: 2;    /* 设定行数为2 */
+
+/*  view增加灰色下划线 */
+border-bottom: 1px solid #f4f4f4;
+
+/*  view水平布局 */
+  display:flex;
+  flex-direction:row;//可选column
+
+
 
 
 
