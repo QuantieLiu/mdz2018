@@ -34,3 +34,8 @@ page{
 flex-direction: column;
 align-items: center;
 justify-content: space-between;
+
+/*  文字若显示超出一行则省略号 */
+
+
+
