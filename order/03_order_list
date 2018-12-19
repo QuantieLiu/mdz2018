@@ -1,7 +1,8 @@
-#### scroll-view 竖向滚动，横向3个商品居中等间隔显示
+### scroll-view 竖向滚动，横向3个商品居中等间隔显示
 
 <li>padding-left和margin-right结合，和百分比布局分布
 <li>image标签使用 aspectFill 模式
+
 
 ## WXML
 
