@@ -1,0 +1,85 @@
+## WXML
+  <view wx:if="{{isShowLogis}}" class="show-map">
+    <map id="myMap" latitude="{{latitude}}" longitude="{{longitude}}"  markers="{{markers}}" style="width: 100%;height: 100%;" show-location></map>
+  </view>
+      
+## WXSS
+/* 主窗口-地图-开始 */
+.show-map{
+  width:96%;
+  height:150px;
+  margin:0 2%;
+  box-sizing:border-box;
+  border-bottom: 1px solid #f4f4f4;
+}
+/* 主窗口-地图-结束 */
+
+## js
+// pages/order/order_detail.js
+const app = getApp(); 
+var util = require('../../utils/util.js');
+//import logistics from '../template/logistics/logistics';
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    latitude: '', //地图的中心位置
+    longitude: '',  //地图的中心位置
+    logisObj: {},//物流信息对象
+    isShowLogis: false,//是否显示物流信息，默认false不显示
+    markers: [],  //定位
+    statusMsg: '',  //logisObj为空时，后台传什么就显示什么
+  },
+  onReady: function (e) {
+    this.mapCtx = wx.createMapContext('myMap')
+  },
+  /**
+   * 加载订单数据
+   */
+  getOrderDetailById: function (orderId) {
+    var instance = this;
+    wx.request({
+      url: app.globalData.baseURL + "/api/wshop/shopselforder/loadOrderDetail.do?callback=callback",
+      method: "GET",
+      data: {
+        id: orderId,
+      },
+      header: { 'Content-Type': 'application/json' },
+      success: function (res) {
+        var data = res.data.replace(/callback\(/g, '');
+        data = data.replace(/}\)/g, '}');
+        data = JSON.parse(data).bean;
+
+        var orderMoney = util.numberUtil.add(data.freightMoney, data.totalSaleMoney);
+        instance.setData({
+          order: data,
+        });
+        if (util.tryParseJson(data.logisticsRemark)){
+          var logisObj = JSON.parse(data.logisticsRemark);
+          var logisMaker = [{
+            id: logisObj.orderId,
+            latitude: logisObj.transporterLat,
+            longitude: logisObj.transporterLng,
+            iconPath: '/pages/theme/images/location.png'
+          }];
+          instance.setData({
+            order: data,
+            logisObj: logisObj,
+            markers: logisMaker,
+            isShowLogis: true,
+            latitude: logisObj.transporterLat,
+            longitude: logisObj.transporterLng,
+          });
+        }else{
+          instance.setData({
+            statusMsg: data.logisticsRemark ? data.logisticsRemark = null : "暂无配送信息",
+          });
+        }
+
+      }
+    })
+  },
+  
+})
+
