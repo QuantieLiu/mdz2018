@@ -4,6 +4,11 @@
 #### 判断undefied和空
 orderId != "" && typeof(orderId) != "undefined"
 
+#### 判断null/undefied/空/Nan
+if (!data.freightMoney ||data.freightMoney == "" || typeof (data.freightMoney) == "undefined" || isNaN(data.freightMoney)){
+     data.freightMoney=0;
+}
+
 #### 判断string能否转换成json对象
 const tryParseJson = data => {
   if (typeof data == "string") {
