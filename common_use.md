@@ -30,3 +30,21 @@ const parseJSON = data => {
   }
   return data;
 }
+
+#### 升级版-若能则返回json对象，否则string
+const tryParseJson = data => {
+  if (typeof data == "string") {
+    try{
+      var obj = JSON.parse(data);
+      if (typeof obj == 'object' && obj) {
+        return obj;
+      } else {
+        return data;
+      }
+    }catch(e){
+      return data;
+    }
+  }else{
+    return null;
+  }
+}
