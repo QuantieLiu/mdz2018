@@ -4,6 +4,21 @@
 #### 判断undefied和空
 orderId != "" && typeof(orderId) != "undefined"
 
+#### 判断方法--对象，推荐用instanceof
+<li>小程序中方法名都是通过this调用的，判断时也一定要带上
+     
+``` 
+    if (this.changeGoodsNum instanceof Function) {
+      this.changeGoodsNum(goodsId, goodsNum);
+    }
+    
+    var instance = this;
+    if (instance.changeGoodsNumToZero instanceof Function) {
+        instance.changeGoodsNumToZero();
+      }
+    
+``` 
+
 #### 判断null/undefied/空/Nan
 if (!data.freightMoney ||data.freightMoney == "" || typeof (data.freightMoney) == "undefined" || isNaN(data.freightMoney)){
      data.freightMoney=0;
