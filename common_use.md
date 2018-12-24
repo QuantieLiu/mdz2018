@@ -1,8 +1,19 @@
 
 ## js
 
-#### 判断undefied和空
+#### 判断基本类型 typeof
+<li>判断undefied和空
+     
+``` 
 orderId != "" && typeof(orderId) != "undefined"
+``` 
+<li>判断null/undefied/空/Nan
+     
+``` 
+if (!data.freightMoney ||data.freightMoney == "" || typeof (data.freightMoney) == "undefined" || isNaN(data.freightMoney)){
+     data.freightMoney=0;
+}
+``` 
 
 #### 判断方法--对象，推荐用instanceof
 <li>小程序中方法名都是通过this调用的，判断时也一定要带上
@@ -18,11 +29,6 @@ orderId != "" && typeof(orderId) != "undefined"
       }
     
 ``` 
-
-#### 判断null/undefied/空/Nan
-if (!data.freightMoney ||data.freightMoney == "" || typeof (data.freightMoney) == "undefined" || isNaN(data.freightMoney)){
-     data.freightMoney=0;
-}
 
 #### 判断string能否转换成json对象
 const tryParseJson = data => {
