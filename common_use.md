@@ -31,6 +31,8 @@ if (!data.freightMoney ||data.freightMoney == "" || typeof (data.freightMoney) =
 ``` 
 
 #### 判断string能否转换成json对象
+
+``` 
 const tryParseJson = data => {
   if (typeof data == "string") {
     try{
@@ -45,8 +47,11 @@ const tryParseJson = data => {
     }
   }
 }
+``` 
 
 #### 返回参数中带着callback需要截取并转换json对象的string
+
+``` 
 const parseJSON = data => {
   if (typeof data == "string") {
     data = data.replace(/callback\(/g, '');
@@ -56,8 +61,11 @@ const parseJSON = data => {
   }
   return data;
 }
+``` 
 
 #### 升级版-若能则返回json对象，否则string
+
+``` 
 const tryParseJson = data => {
   if (typeof data == "string") {
     try{
@@ -74,3 +82,5 @@ const tryParseJson = data => {
     return null;
   }
 }
+``` 
+
