@@ -97,6 +97,7 @@
 
 
 <li>instanceof运算符会判断指定对象类型的prototype
+  
 ``` 
  //定义两个构造函数
         function cons1(){}
@@ -115,15 +116,5 @@
         alert(obj instanceof Object); //返回true
 
 ``` 
+
 ##### 主要区别：typeof用于判断基本类型，instanceof 用于判断对象类型
-
-
-
-
-
-
-
-
-
-
-
