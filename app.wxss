@@ -55,7 +55,8 @@ border-bottom: 1px solid #f4f4f4;
   display:flex;
   flex-direction:row;//可选column
 
-
+/*  禁止页面滚动 */
+  overflow: hidden;
 
 
 
