@@ -135,7 +135,7 @@ Page({
   uploadPic: function (e,  picsTimes){
     var instance = this;
       wx.uploadFile({
-        url: app.globalData.baseURL + '/api/saveGoodsEvaluate.do?callback=callback',
+        url: app.globalData.baseURL + '/saveGoodsEvaluate.do?callback=callback',
         filePath: this.data.tempFilePaths[0],
         name: 'file',
         formData: {
@@ -161,7 +161,7 @@ Page({
    */
   uploadOnlyPic: function (i,id) {
     wx.uploadFile({
-      url: app.globalData.baseURL + '/api/saveGoodsEvaluate.do?callback=callback',
+      url: app.globalData.baseURL + '/saveGoodsEvaluate.do?callback=callback',
       filePath: this.data.tempFilePaths[i],
       name: 'file',
       formData: { id: id},
