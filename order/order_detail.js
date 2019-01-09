@@ -25,7 +25,7 @@ var index = {
   getOrderDetailById: function (orderId) {
     var instance = this;
     wx.request({
-      url: app.globalData.baseURL + "/api/wshop/shopselforder/loadOrderDetail.do?callback=callback",
+      url: app.globalData.baseURL + "/loadOrderDetail.do?callback=callback",
       method: "GET",
       data: {
         id: orderId,
