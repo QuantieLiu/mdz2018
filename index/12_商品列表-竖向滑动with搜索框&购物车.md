@@ -364,7 +364,7 @@ var index = {
         oldGoodName: goodsName,
       });
       wx.request({
-        url: app.globalData.baseURL + '/api/wshop/shopselfgoods/listGoods.do?callback=callback',
+        url: app.globalData.baseURL + '\listGoods.do?callback=callback',
         method: "post",
         data: { params: goodsName, pageNo: pageNo, perPageSize: instance.data.pageSize },
         header: { 'Content-Type': 'application/x-www-form-urlencoded' },
